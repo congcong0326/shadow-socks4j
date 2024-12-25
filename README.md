@@ -46,9 +46,9 @@ services:
     enable: true            # 是否启用服务
     supportDecryption: true # 是否启用解密
     decryptionAlgorithm: CHACHA20_POLY1305 # 加密算法（支持 AES_256_GCM、AES_128_GCM、CHACHA20_POLY1305）
-    decryptionKey: root     # 解密密钥
+    decryptionKey: xxxxxx     # 解密密钥
     credentials:
-      - username: congcong  # 用户名，仪表盘流量统计将使用此用户名作为唯一标识
+      - username: user_1  # 用户名，仪表盘流量统计将使用此用户名作为唯一标识
 
   - name: shadowSocksChaCha
     port: 36170
@@ -56,9 +56,9 @@ services:
     enable: true
     supportDecryption: true
     decryptionAlgorithm: CHACHA20_POLY1305
-    decryptionKey: root
+    decryptionKey: xxxxx
     credentials:
-      - username: baobao
+      - username: user_2
 
   - name: admin-ui  # 仪表盘，默认监控 127.0.0.1:36199
     port: 36199
