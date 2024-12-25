@@ -6,6 +6,9 @@
 2. 内置仪表盘，可以查看服务的基本状态及流量使用情况。
 3. 能防止重放攻击并具有检测功能。
 
+![image](https://github.com/user-attachments/assets/1340b5ea-ac95-4e77-a6b6-0e9be3033588)
+
+
 ## 如何使用
 
 我的服务器配置为 1 核 CPU 和 500MB 内存，由于内存较小，选择了 CentOS 7。无论选择哪个操作系统，建议将 TCP 拥塞控制算法改为 BBR，这能在弱网环境下提供更好的网络传输速率。
@@ -36,8 +39,8 @@ sudo systemctl start chronyd
 sudo timedatectl set-timezone Asia/Shanghai
 ```
 
-### 编写配置文件
-程序使用 YAML 文件作为配置。以下是一个示例配置：
+### 下载程序试用
+程序使用 YAML 文件作为配置。以下是一个示例配置，你可能需要修改其中的decryptionKey字段为使用的密钥，username为使用者的昵称。
 ```yaml
 services:
   - name: shadowSocksChaCha  # 服务名称
@@ -65,12 +68,8 @@ services:
     type: ADMIN
     enable: true
 ```
+我的第一个版本已经发布在release，解压后需要修改配置文件中指定的端口密码等参数，然后执行`./proxy.sh start`启动程序，`./proxy.sh stop`停止程序。
 
-### 启动程序
-启动程序时，按照需要分配内存，或者按照以下示例分配。以下是启动命令：
-```bash
-nohup java -Xms64m -Xmx128m -XX:MaxDirectMemorySize=128m  --add-opens java.base/jdk.internal.misc=ALL-UNNAMED -Dio.netty.tryReflectionSetAccessible=true -jar proxy-1.0-SNAPSHOT.jar > /dev/null 2>&1 &
-```
 
 ## 防止检测原理
 
