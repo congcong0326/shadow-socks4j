@@ -1,0 +1,7 @@
+dnsMappings:
+  - domain: "www.congcong.cn"
+    ip: "107.174.218.87"
+    port: 8080
+  - domain: "s-s-admin.cn"
+    ip: "127.0.0.1"
+    port: 36189

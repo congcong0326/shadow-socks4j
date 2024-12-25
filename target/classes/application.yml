@@ -1,0 +1,50 @@
+services:
+  - name: httpProxy
+    port: 8099
+    type: HTTP
+    enable: false
+  - name: socksProxy
+    port: 8098
+    type: SOCKS
+    enable: false
+    credentials:
+      - username: user3
+        password: pass3
+      - username: user4
+        password: pass4
+  - name: shadowSocksAes256
+    port: 8488
+    type: SHADOW_SOCKS
+    enable: false
+    supportDecryption: true
+    decryptionAlgorithm: AES_256_GCM
+    decryptionKey: 8f998521-2a77-4fe2-acd5-cdee1e80a49c
+  - name: shadowSocksAes128
+    port: 8489
+    type: SHADOW_SOCKS
+    enable: false
+    supportDecryption: true
+    decryptionAlgorithm: AES_128_GCM
+    decryptionKey: 8f998521-2a77-4fe2-acd5-cdee1e80a49c
+  - name: shadowSocksChaCha
+    port: 36198
+    type: SHADOW_SOCKS
+    enable: true
+    supportDecryption: true
+    decryptionAlgorithm: AES_128_GCM
+    decryptionKey: xiangbaobao
+    credentials:
+      - username: congcong
+  - name: shadowSocksChaCha
+    port: 36170
+    type: SHADOW_SOCKS
+    enable: true
+    supportDecryption: true
+    decryptionAlgorithm: AES_128_GCM
+    decryptionKey: chouzhuzhu
+    credentials:
+      - username: baobao
+  - name: admin-ui
+    port: 36199
+    type: ADMIN
+    enable: true
